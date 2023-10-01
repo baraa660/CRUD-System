@@ -13,9 +13,12 @@ var deleteBtn=document.getElementById("deleteBtn");
 var isNameTrue=false;
 var courses=[];
 
-courses=JSON.parse(localStorage.getItem("courses"));
-displaydata();
-
+if (JSON.parse(localStorage.getItem("courses")) == null) {
+    var courses = [];
+} else {
+    courses = JSON.parse(localStorage.getItem("courses"));
+    displaydata();
+}
 
 addBtn.addEventListener("click", function (e) {
     e.preventDefault();
